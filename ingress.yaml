@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-rails
+spec:
+  rules:
+  - http:
+     paths:
+     - path: /rails/*
+       backend:
+         serviceName: rails-svc
+         servicePort: 3000
+  backend:
+    serviceName: nginx-svc
+    servicePort: 80    
